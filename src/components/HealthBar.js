@@ -1,7 +1,14 @@
 import React from 'react';
 
-function HealthBar() {
-  return <div>Health Bar</div>;
+import { LinearProgress } from '@mui/material';
+
+function HealthBar({ healthPercentage }) {
+  return (
+    <LinearProgress
+      variant="determinate"
+      value={healthPercentage}
+    />
+  );
 }
 
 export default HealthBar;

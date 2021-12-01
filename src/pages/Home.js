@@ -2,26 +2,22 @@ import React from 'react';
 
 import { Grid } from '@mui/material';
 
-import Character from '../components/Character';
-import HealthBar from '../components/HealthBar';
+import CharacterContainer from '../components/CharacterContainer';
 
 function Home() {
   return (
     <>
-      <Grid container alignItems="end" sx={{ height: '50vh' }}>
-        <Grid item xs={6} sx={{ textAlign: 'center' }}>
-          <HealthBar />
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+        sx={{ height: '100vh' }}
+      >
+        <Grid item xs={4} sx={{ textAlign: 'center' }}>
+          <CharacterContainer />
         </Grid>
-        <Grid item xs={6} sx={{ textAlign: 'center' }}>
-          <HealthBar />
-        </Grid>
-      </Grid>
-      <Grid container alignItems="start" sx={{ height: '50vh' }}>
-        <Grid item xs={6} sx={{ textAlign: 'center' }}>
-          <Character />
-        </Grid>
-        <Grid item xs={6} sx={{ textAlign: 'center' }}>
-          <Character />
+        <Grid item xs={4} sx={{ textAlign: 'center' }}>
+          <CharacterContainer />
         </Grid>
       </Grid>
     </>
