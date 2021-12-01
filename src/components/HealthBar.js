@@ -1,7 +1,7 @@
 import React from 'react';
 
 function HealthBar() {
-  return null;
+  return <div>Health Bar</div>;
 }
 
 export default HealthBar;
