@@ -13,11 +13,11 @@ function Home() {
         justifyContent="center"
         sx={{ height: '100vh' }}
       >
-        <Grid item xs={4} sx={{ textAlign: 'center' }}>
-          <CharacterContainer />
+        <Grid item xs={4} sx={{ textAlign: 'center', margin: '2em' }}>
+          <CharacterContainer isEnemy={false} />
         </Grid>
-        <Grid item xs={4} sx={{ textAlign: 'center' }}>
-          <CharacterContainer />
+        <Grid item xs={4} sx={{ textAlign: 'center', margin: '2em' }}>
+          <CharacterContainer isEnemy={true} />
         </Grid>
       </Grid>
     </>
