@@ -6,28 +6,29 @@ import CharacterContainer from '../components/CharacterContainer';
 import rightDragonImg from '../images/right-dragon.png';
 import leftDragonImg from '../images/left-dragon.png';
 
-import Character from '../models/character';
+import Player from '../models/player';
+import Enemy from '../models/enemy';
 import Attack from '../models/attack';
 
 function Home() {
-  const [leftHealthPercentage, setLeftHealthPercentage] = useState(100);
-  const [rightHealthPercentage, setRightHealthPercentage] = useState(100);
+  const [playerHealthPercentage, setPlayerHealthPercentage] = useState(100);
+  const [enemyHealthPercentage, setEnemyHealthPercentage] = useState(100);
 
-  const leftCharacter = new Character(
-    'User 1',
-    leftHealthPercentage,
-    false,
+  const leftCharacter = new Player(
+    'Player',
+    playerHealthPercentage,
     rightDragonImg,
-    setRightHealthPercentage,
-    rightHealthPercentage,
+    setEnemyHealthPercentage,
+    enemyHealthPercentage,
     [new Attack('LIGHT ATTACK', 10), new Attack('HEAVY ATTACK', 15)]
   );
-  const rightCharacter = new Character(
+  const rightCharacter = new Enemy(
     'Enemy',
-    rightHealthPercentage,
-    true,
+    enemyHealthPercentage,
     leftDragonImg,
-    []
+    setPlayerHealthPercentage,
+    playerHealthPercentage,
+    [new Attack('LIGHT ATTACK', 10), new Attack('HEAVY ATTACK', 15)]
   );
 
   return (
