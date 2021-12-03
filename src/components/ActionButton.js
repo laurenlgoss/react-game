@@ -2,12 +2,10 @@ import React from 'react';
 
 import { Button, Grid } from '@mui/material';
 
-function ActionButton({ attacks }) {
-  const attackArray = ['LIGHT ATTACK', 'HEAVY ATTACK'];
-
+function ActionButton({ character }) {
   return (
     <Grid container>
-      {attacks.map((attack) => {
+      {character.attacks.map((attack) => {
         return (
           <Grid item xs={6} sx={{ padding: '0.1em'}}>
             <Button
@@ -16,6 +14,7 @@ function ActionButton({ attacks }) {
               size="small"
               color="error"
               sx={{ width: '100%', borderRadius: '.15em' }}
+              onClick={() => character.setRightHealthPercentage(character.rightHealthPercentage - attack.strength)}
             >
               {attack.name}
             </Button>
