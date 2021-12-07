@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 
 import CharacterContainer from '../components/CharacterContainer';
+
 import rightDragonImg from '../images/right-dragon.png';
 import leftDragonImg from '../images/left-dragon.png';
 
@@ -14,7 +15,7 @@ function Home() {
   const [playerHealthPercentage, setPlayerHealthPercentage] = useState(100);
   const [enemyHealthPercentage, setEnemyHealthPercentage] = useState(100);
 
-  const leftCharacter = new Player(
+  const player = new Player(
     'Player',
     playerHealthPercentage,
     rightDragonImg,
@@ -22,7 +23,7 @@ function Home() {
     enemyHealthPercentage,
     [new Attack('LIGHT ATTACK', 10), new Attack('HEAVY ATTACK', 15)]
   );
-  const rightCharacter = new Enemy(
+  const enemy = new Enemy(
     'Enemy',
     enemyHealthPercentage,
     leftDragonImg,
@@ -39,10 +40,10 @@ function Home() {
       sx={{ height: '100vh' }}
     >
       <Grid item xs={4} sx={{ textAlign: 'center', margin: '2em' }}>
-        <CharacterContainer character={leftCharacter} />
+        <CharacterContainer character={player} />
       </Grid>
       <Grid item xs={4} sx={{ textAlign: 'center', margin: '2em' }}>
-        <CharacterContainer character={rightCharacter} />
+        <CharacterContainer character={enemy} />
       </Grid>
     </Grid>
   );

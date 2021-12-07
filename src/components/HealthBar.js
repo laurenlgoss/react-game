@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { makeStyles } from '@material-ui/core/styles';
 import { Box, LinearProgress, Typography } from '@mui/material';
 
 function LinearProgressWithLabel(props) {
@@ -17,8 +18,20 @@ function LinearProgressWithLabel(props) {
   );
 }
 
-function HealthBar({ healthPercentage }) {
-  return <LinearProgressWithLabel value={healthPercentage} />;
+function HealthBar({ color, healthPercentage }) {
+  const useStyles = makeStyles({
+    healthBar: ({ color }) => ({
+      '& .MuiLinearProgress-barColorPrimary': {
+        backgroundColor: color,
+      },
+    }),
+  });
+
+  const { healthBar } = useStyles({ color });
+
+  return (
+    <LinearProgressWithLabel value={healthPercentage} className={healthBar} />
+  );
 }
 
 export default HealthBar;
