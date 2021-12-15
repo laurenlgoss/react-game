@@ -18,7 +18,17 @@ function LinearProgressWithLabel(props) {
   );
 }
 
-function HealthBar({ color, healthPercentage }) {
+function HealthBar({ healthPercentage }) {
+  let color;
+
+  if (healthPercentage > 50) {
+    color = 'green';
+  } else if (healthPercentage <= 50 && healthPercentage > 25) {
+    color = 'orange';
+  } else if (healthPercentage <= 25) {
+    color = 'red';
+  }
+
   const useStyles = makeStyles({
     healthBar: ({ color }) => ({
       '& .MuiLinearProgress-barColorPrimary': {

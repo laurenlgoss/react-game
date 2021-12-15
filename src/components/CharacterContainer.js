@@ -9,10 +9,7 @@ function CharacterContainer({ character }) {
   return (
     <Stack spacing={3}>
       <div>{character.name}</div>
-      <HealthBar
-        color={'green'}
-        healthPercentage={character.healthPercentage}
-      />
+      <HealthBar healthPercentage={character.healthPercentage} />
       <img src={character.img} alt="Character" />
       {!character.isEnemy ? <ActionButton character={character} /> : null}
     </Stack>
