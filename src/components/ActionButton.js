@@ -5,9 +5,23 @@ import { Button, Grid } from '@mui/material';
 function ActionButton({ character }) {
   function handleButtonClick(attack) {
     if (!character.isEnemy) {
-      character.setEnemyHealthPercentage(character.enemyHealthPercentage - attack.strength);
+      const newEnemyHealthPercentage =
+        character.enemyHealthPercentage - attack.strength;
+
+      if (newEnemyHealthPercentage < 0) {
+        character.setEnemyHealthPercentage(0);
+      } else {
+        character.setEnemyHealthPercentage(newEnemyHealthPercentage);
+      }
     } else {
-      character.setPlayerHealthPercentage(character.playerHealthPercentage - attack.strength);
+      const newPlayerHealthPercentage =
+        character.playerHealthPercentage - attack.strength;
+
+      if (newPlayerHealthPercentage < 0) {
+        character.setPlayerHealthPercentage(0);
+      } else {
+        character.setPlayerHealthPercentage(newPlayerHealthPercentage);
+      }
     }
   }
 
@@ -15,7 +29,7 @@ function ActionButton({ character }) {
     <Grid container>
       {character.attacks.map((attack) => {
         return (
-          <Grid item xs={6} sx={{ padding: '0.1em'}}>
+          <Grid item xs={6} sx={{ padding: '0.1em' }}>
             <Button
               variant="contained"
               disableElevation
